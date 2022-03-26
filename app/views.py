@@ -26,11 +26,11 @@ def check_usernames(u_path):
     for i in restrictions:
         args.append(i)
 
-    # try:
-    func = dispatcher[u_path](username, *args)
-    return jsonify(func)
-    # except:
-    #     return {'status': False, 'reason': 'حدث خطأ، الرجاء المحاولة مرة اخرى', 'function': u_path}
+    try:
+        func = dispatcher[u_path](username, *args)
+        return jsonify(func)
+    except:
+        return {'status': False, 'reason': 'حدث خطأ، الرجاء المحاولة مرة اخرى', 'function': u_path}
 
 
 @app.route('/send_email', methods=['POST'])

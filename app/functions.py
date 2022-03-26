@@ -3,7 +3,7 @@ import json
 from instagrapi import Client
 from TikTokAPI import TikTokAPI
 from time import sleep
-
+from app.settings import INSTAGRAM_PASSWORD, INSTAGRAM_USERNAME
 
 # -*- coding: utf-8 -*-
 def is_english(s):
@@ -65,7 +65,7 @@ def instagram(username):
         sleep(1)
     except:
         cl = Client()
-        cl.login('reactmovie18', 'lykiolhtddfbpsif')
+        cl.login(INSTAGRAM_USERNAME, INSTAGRAM_PASSWORD)
         json.dump(
             cl.get_settings(),
             open('logg-file.json', 'w')
