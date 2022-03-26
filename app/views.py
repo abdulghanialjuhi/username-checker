@@ -65,7 +65,7 @@ def send_email():
     # try:
     with smtplib.SMTP('smtp.gmail.com', 587) as smtp:
         smtp.starttls()
-        smtp.login('reactmovie18@gmail.com', 'rlnumiouvarhoctl')
+        smtp.login(SENDER, PASSWORD)
         smtp.sendmail(SENDER, RECEIVER, msg.as_string())
         return 'تم إرسال الرسالة بنجاح'
     # except:
