@@ -62,22 +62,13 @@ def send_email():
     </html>
     ''', subtype='html')
 
-    # # try:
-    # with smtplib.SMTP('smtp.gmail.com', 587) as smtp:
-    #     smtp.starttls()
-    #     smtp.login(SENDER, PASSWORD)
-    #     smtp.sendmail(SENDER, RECEIVER, msg.as_string())
-    #     return 'تم إرسال الرسالة بنجاح'
-    # # except:
-    # #     return 'عذراً، الرجاء المحاولة مرة اخرى', 400
-
-    # try:/
-    server = smtplib.SMTP('smtp.gmail.com', 587)
-    server.starttls()
-    server.login(SENDER, PASSWORD)
-    server.sendmail(SENDER, RECEIVER, msg.as_string())
-    return 'تم إرسال الرسالة بنجاح'
+    # try:
+    with smtplib.SMTP('smtp.gmail.com', 587) as smtp:
+        smtp.starttls()
+        smtp.login('reactmovie18@gmail.com', 'rlnumiouvarhoctl')
+        smtp.sendmail(SENDER, RECEIVER, msg.as_string())
+        return 'تم إرسال الرسالة بنجاح'
     # except:
-    #     return 'Failed'
-    # return 'This email is not registered'
+    #     return 'عذراً، الرجاء المحاولة مرة اخرى', 400
+
 
