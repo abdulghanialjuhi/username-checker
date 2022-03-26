@@ -1,0 +1,33 @@
+.app-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  min-height: 50vh;
+  z-index: 1;
+}
+
+.search-svg-conatainer {
+  position: absolute;
+  top: -22%;
+  left: 0rem;
+  width: 100%;
+  height: 122%;
+  max-height: 480px;
+  min-height: 250px;
+  max-width: 800px;
+  opacity: 0.3;
+  z-index: -1;
+}
+
+.search-svg-conatainer > img {
+  width: 100%;
+  height: 100%;
+}
+
+@media (max-width: 950px) {
+  .search-svg-conatainer {
+    display: none;
+  }
+}

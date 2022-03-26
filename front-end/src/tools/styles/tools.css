@@ -1,0 +1,110 @@
+.loader {
+  border: 4px solid black;
+  border-radius: 50%;
+  border-top: 4px solid transparent;
+  width: 1rem;
+  height: 1rem;
+  -webkit-animation: spin 1s linear infinite; /* Safari */
+  animation: spin 1s linear infinite;
+}
+
+.button-conatiner {
+  width: 100%;
+  height: 100%;
+}
+
+.button-conatiner > input {
+  width: 100%;
+  height: 3rem;
+  padding: 10px 15px;
+  background-color: var(--primary-color);
+  border: none;
+  border-radius: 7px;
+  color: unset;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+@-webkit-keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.full-payload {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  animation: openModal 500ms;
+  background-color: rgba(0, 0, 0, 0.3);
+  pointer-events: auto;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@keyframes openModal {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.full-payload.hide-modal {
+  animation: closeModal 500ms;
+  opacity: 0;
+}
+
+@keyframes closeModal {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+/* .full-payload > .up {
+  animation: animateUp 350ms;
+}
+
+@keyframes animateUp {
+  from {
+    transform: translateY(-50px);
+  }
+  to {
+    transform: translateY(0px);
+  }
+}
+
+.full-payload.hide-modal > .up {
+  animation: animateDown 350ms;
+}
+
+@keyframes animateDown {
+  from {
+    transform: translateY(0px);
+  }
+  to {
+    transform: translateY(-50px);
+  }
+} */

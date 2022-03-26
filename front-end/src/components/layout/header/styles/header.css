@@ -1,0 +1,223 @@
+.header-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.home-landing {
+  height: 50vh;
+  min-height: 24rem;
+}
+
+.header-container.home-landing:before {
+  -webkit-clip-path: polygon(0 0, 0 30%, 100% 100%, 100% 100%, 100% 0);
+  clip-path: polygon(0 0, 0 30%, 100% 100%, 100% 100%, 100% 0);
+  background-color: var(--primary-color);
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100vw;
+  height: inherit;
+  min-height: inherit;
+  z-index: -1;
+  transition: clip-path 250ms;
+}
+
+.inner-header-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.nav-bar-container {
+  width: 100%;
+  height: 5rem;
+  overflow: hidden;
+  background-color: inherit;
+  display: flex;
+  align-items: flex-start;
+  transition: height 250ms;
+  background-color: var(--primary-color);
+}
+
+.inner-container-div {
+  padding: 1rem;
+  width: 100%;
+  display: flex;
+  min-height: 5.1rem;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.home-brand-container {
+  display: flex;
+  padding: 0 2%;
+  justify-content: center;
+}
+
+.home-brand-container > h5 {
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+.burger-icon-container {
+  display: none;
+}
+
+.tool-bar-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 100%;
+  flex-grow: 1;
+  height: 100%;
+  padding: 1rem;
+}
+
+.header-bar-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 2.3rem;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  text-align: center;
+}
+
+.header-bar-container:hover {
+  background-color: var(--secondary-color);
+}
+
+.header-bar-container.activa-bar,
+.header-bar-container.activa-bar:hover {
+  background-color: var(--dark-mode-secondary-color);
+}
+
+.home-title-container {
+  display: flex;
+  width: 90%;
+  padding: 10px;
+}
+
+.inner-title-container {
+  width: 60%;
+  margin: 0 5%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.inner-title-container > h1 {
+  margin-bottom: 1rem;
+  font-weight: 900;
+  font-size: 2.5rem;
+}
+
+.paragraph-container {
+  color: #bdadce;
+  width: 70%;
+}
+
+.twitter-icon {
+  position: absolute;
+  right: 6%;
+  bottom: 15%;
+  color: var(--secondary-color);
+}
+
+.instagram-icon {
+  position: absolute;
+  left: 6%;
+  bottom: 15%;
+  color: var(--secondary-color);
+  z-index: 6;
+}
+
+@media (max-width: 950px) {
+  .nav-bar-container {
+    flex-direction: column;
+    padding: 0px;
+  }
+
+  .nav-bar-container.extend-bar {
+    height: 13rem;
+  }
+
+  .inner-container-div {
+    padding: 10px;
+  }
+
+  .home-brand-container > h5 {
+    font-size: 1.7rem;
+  }
+
+  .header-container.home-landing:before {
+    -webkit-clip-path: polygon(0 0, 0 70%, 100% 100%, 100% 100%, 100% 0);
+    clip-path: polygon(0 0, 0 70%, 100% 100%, 100% 100%, 100% 0);
+  }
+
+  .home-title-container {
+    width: 100%;
+  }
+
+  .burger-icon-container {
+    display: flex;
+  }
+
+  .tool-bar-container {
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    background-color: var(--dark-mode-secondary-color);
+    overflow: scroll;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .tool-bar-container::-webkit-scrollbar {
+    display: none;
+  }
+
+  .header-bar-container {
+    width: 100%;
+    max-width: 400px;
+    margin: 5px;
+  }
+
+  .header-bar-container.activa-bar,
+  .header-bar-container.activa-bar:hover {
+    background-color: var(--primary-color);
+  }
+
+  .icon-container {
+    display: flex;
+    align-items: center;
+    background-color: var(--dark-mode-secondary-color);
+    border: 1px var(--secondary-color) solid;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  .header-container.extend-header.home-landing:before {
+    -webkit-clip-path: polygon(0 0, 0 100%, 100% 100%, 100% 100%, 100% 0);
+    clip-path: polygon(0 0, 0 100%, 100% 100%, 100% 100%, 100% 0);
+  }
+
+  .inner-title-container {
+    width: 100%;
+    margin: 0px;
+  }
+
+  .inner-title-container > h1 {
+    font-size: 2rem;
+  }
+}
