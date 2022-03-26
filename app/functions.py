@@ -80,12 +80,12 @@ def instagram(username):
 
 @decorator
 def tiktok(username):
-    # cookie = {
-    #     "s_v_web_id": "verify_l0f0u4bx_blXz11di_Ttl8_4lxJ_AECH_54jJ0sTp5Ipo",
-    #     "ttwid": "1%7CW3IdzTAJUT2VpkXhRx5pFjnr2ErFV8nQEdWFnZVyqAU%7C1646575305%7C46e558aef6073b18ed8f1e952996b7e31b86442c2ed9446718db4731f0a4da07"
-    # }
+    cookie = {
+        "s_v_web_id": "verify_l0f0u4bx_blXz11di_Ttl8_4lxJ_AECH_54jJ0sTp5Ipo",
+        "ttwid": "1%7CW3IdzTAJUT2VpkXhRx5pFjnr2ErFV8nQEdWFnZVyqAU%7C1646575305%7C46e558aef6073b18ed8f1e952996b7e31b86442c2ed9446718db4731f0a4da07"
+    }
     try:
-        api = TikTokAPI()
+        api = TikTokAPI(cookie=cookie)
         user_obj = api.getUserByName(username)
         if user_obj['statusCode'] == 10202:
             return {'status': True, 'reason': 'متاح', 'function': 'Tiktok'}
@@ -94,14 +94,6 @@ def tiktok(username):
     except RuntimeError as rn:
         print(rn)
         return {'status': False, 'reason': 'خطأ', 'function': 'Tiktok'}
-    
-    # with TikTokApi() as api:
-    #     try:
-    #         user = api.user(username=username)
-    #         print(user.as_dict['uniqueId'])
-    #         return {'status': True, 'reason': 'متاح', 'function': 'Tiktok'}
-    #     except:
-    #         return {'status': False, 'reason': 'غير متاح', 'function': 'Tiktok'}
 
 
 @decorator
