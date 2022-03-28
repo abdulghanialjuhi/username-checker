@@ -1,5 +1,5 @@
 from app import app
-from app.functions import instagram, snapchat, tiktok, twitter, gmail, outlook, hotmail, reddit
+from app.functions import instagram, snapchat, tiktok, twitter, mail, reddit
 from flask import request, jsonify
 import smtplib
 from app.settings import PASSWORD, SENDER, RECEIVER
@@ -7,23 +7,23 @@ from email.message import EmailMessage
 
 
 dispatcher = {'instagram': instagram, 'snapchat': snapchat, 'tiktok': tiktok, 'twitter': twitter,
-              'gmail': gmail, 'outlook': outlook, 'hotmail': hotmail, 'reddit': reddit}
+              'mail': mail, 'reddit': reddit}
 
 
 @app.route('/check/<path:u_path>', methods=['POST'])
 def check_usernames(u_path):
     data = request.form.to_dict()
     username = data['username']
-    restrictions = data['restrictions']
+    arguments = data['arguments']
 
     if len(username.split()) > 1:
         return {'status': False, 'reason': 'اسم المستخدم لا يجب ان يحتوي على مساحات', 'function': u_path}
 
     username = username.replace(" ", "").lower()
-    restrictions = restrictions.split(',')
+    arguments = arguments.split(',')
 
     args = []
-    for i in restrictions:
+    for i in arguments:
         args.append(i)
 
     try:
@@ -62,13 +62,11 @@ def send_email():
     </html>
     ''', subtype='html')
 
-    # try:
-    with smtplib.SMTP('smtp.gmail.com', 587) as smtp:
-        smtp.starttls()
-        smtp.login(SENDER, PASSWORD)
-        smtp.sendmail(SENDER, RECEIVER, msg.as_string())
-        return 'تم إرسال الرسالة بنجاح'
-    # except:
-    #     return 'عذراً، الرجاء المحاولة مرة اخرى', 400
-
-
+    try:
+        with smtplib.SMTP('smtp.gmail.com', 587) as smtp:
+            smtp.starttls()
+            smtp.login(SENDER, PASSWORD)
+            smtp.sendmail(SENDER, RECEIVER, msg.as_string())
+            return 'تم إرسال الرسالة بنجاح'
+    except:
+        return 'عذراً، الرجاء المحاولة مرة اخرى', 400

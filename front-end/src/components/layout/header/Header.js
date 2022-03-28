@@ -26,9 +26,9 @@ export default function Header() {
             </div>
            {homePage && <div className='home-title-container'>
                 <div className='inner-title-container'>
-                    <h1> هويه واحدة لجميع منصاتك الإجتماعية </h1>
+                    <h1> هوية واحدة لجميع منصاتك الإجتماعية </h1>
                     <div className='paragraph-container'>
-                        <p> إذا كنت تبحث عن هويه واحدة لجميع منصاتك الاجتماعية، هنا يمكنك التحقق ما اذا كانت هويتك الجديدة مستخدمة في اي من مواقع التواصل الاجتماعي بضغطة زر فقط !  </p>
+                        <p> اجعل هويتك موحدة في جميع مواقع التواصل الإجتماعي بضغطة زر واحدة فقط </p>
                     </div>
                 </div>
                     <FiTwitter strokeWidth='1' size='10%' className='twitter-icon' />
@@ -38,3 +38,4 @@ export default function Header() {
     </div>
   )
 }
+

@@ -14,7 +14,7 @@ export default function useGlobal() {
             status: null,
             reason: null,
             url: '/check/instagram',
-            restrictions: ['_.', 30]
+            arguments: ['_.', 30, 1]
         },
         {
             name: 'Twitter',
@@ -22,7 +22,7 @@ export default function useGlobal() {
             status: null,
             reason: null,
             url: '/check/twitter',
-            restrictions: ['_', 14, 5]
+            arguments: ['_', 14, 5]
 
         },
         {
@@ -31,7 +31,7 @@ export default function useGlobal() {
             status: null,
             reason: null,
             url: '/check/snapchat',
-            restrictions: ['_.-', 15, 3]
+            arguments: ['_.-', 15, 3]
         },
         {
             name: 'Tiktok',
@@ -39,31 +39,31 @@ export default function useGlobal() {
             status: null,
             reason: null,
             url: '/check/tiktok',
-            restrictions: ['_.', 24, 2]
+            arguments: ['_.', 24, 2]
         },
         {
             name: 'Gmail',
             logo: <FaGoogle size={30} />,
             status: null,
             reason: null,
-            url: '/check/gmail',
-            restrictions: ['.', 30, 6]
+            url: '/check/mail',
+            arguments: ['.', 30, 6, 'gmail']
         },   
         {
             name: 'Hotmail',
             logo: <SiMicrosoftoutlook size={30} />,
             status: null,
             reason: null,
-            url: '/check/hotmail',
-            restrictions: ['_.-', 64]
+            url: '/check/mail',
+            arguments: ['_.-', 64, 1, 'hotmail']
         },
         {
             name: 'Outlook',
             logo: <SiMicrosoftoutlook size={30} />,
             status: null,
             reason: null,
-            url: '/check/outlook',
-            restrictions: ['_.-', 64]
+            url: '/check/mail',
+            arguments: ['_.-', 64, 1, 'outlook']
         },
         {
             name: 'Reddit',
@@ -71,7 +71,7 @@ export default function useGlobal() {
             status: null,
             reason: null,
             url: '/check/reddit',
-            restrictions: ['_-', 21, 4]
+            arguments: ['_-', 21, 4]
         },
     ])
 
@@ -88,7 +88,7 @@ export default function useGlobal() {
             let fd = new FormData()
             fd.append('username', username)
 
-            fd.append('restrictions', platform.restrictions)
+            fd.append('arguments', platform.arguments)
 
             httpRequest.post(platform.url, fd)
             .then((res) => {
@@ -105,9 +105,9 @@ export default function useGlobal() {
         
     }
 
-    function smoothScroll(target1) {
+    function smoothScroll(t) {
         const duration = 1500
-        const target = document.querySelector(target1);
+        const target = document.querySelector(t);
         const targetPosition = target.getBoundingClientRect().top;
         const startPosition = window.pageYOffset;
         const distance = targetPosition;
