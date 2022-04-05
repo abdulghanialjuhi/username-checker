@@ -99,7 +99,7 @@ export default function MailForm() {
                 <InputField  inputRef={titleRef}  placeHolder='العنوان' />
             </div>
 
-            <div className={animateText ?'textarea-field-container show-textarea' : 'textarea-field-container'}>
+            <div className={`textarea-field-container ${animateText && 'show-textarea'}`}>
                 <h6 className={animateText ? 'animate-place-holder' : 'place-holder'} > الرسالة </h6>
                 <textarea required ref={messageRef} rows="7" cols="70" onChange={handleOnFocus} onBlur={handleOnBlur} onFocus={handleOnFocus} />
                 
@@ -124,9 +124,7 @@ export default function MailForm() {
                 </div>
                 {!responseError &&
                  <div className='body-modal-container'>
-                    <h4>
-                        شكراً لك على دعمك.
-                    </h4>
+                    <h4> شكراً لك على دعمك. </h4>
                 </div>}
             </div>
         </Modal>

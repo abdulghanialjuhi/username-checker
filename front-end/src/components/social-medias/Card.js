@@ -4,7 +4,7 @@ import Loader from '../../tools/Loader'
 export default function Card({ platform, username }) {
 
   return (
-    <div className={platform.status === null ? 'social-media-card' : platform.status === false ? 'social-media-card unavalible' : 'social-media-card avalible'}>
+    <div className={`social-media-card  ${platform.status === false ? 'unavalible' : platform.status && 'avalible'} `}>
         <div className='brand-contaienr'>
         <div className='logo-container'>
             {platform.logo}

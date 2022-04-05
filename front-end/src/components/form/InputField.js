@@ -15,7 +15,7 @@ export default function InputField({ inputRef, placeHolder, required = false }) 
   }
 
   return (
-    <div className={animateText ? 'input-container show'  : 'input-container'}>   
+    <div className={`input-container ${animateText && 'show'}`}>   
       <h6 className={animateText ? 'animate-place-holder' : 'place-holder'} > {placeHolder} </h6>
           <input ref={inputRef} required={required} type="text" onChange={handleOnFocus} onBlur={handleOnBlur} onFocus={handleOnFocus} />
     </div>

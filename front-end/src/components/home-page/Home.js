@@ -4,7 +4,7 @@ import UserForm from '../form/UserForm'
 import './styles/home.css'
 import SocialMedia from '../social-medias/SocialMedia'
 import Context from '../../context/Context'
-import Social from '../../images/social1.svg'
+import Social from '../../images/social.svg'
 
 export default function Home() {
 
